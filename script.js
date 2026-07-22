@@ -49,3 +49,30 @@ if (matchMedia('(pointer: coarse)').matches) {
 
 const header = document.querySelector('#header');
 addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+
+const menuButton = document.querySelector('.menu-button');
+const mobilePanel = document.querySelector('#mobile-panel');
+const mobileLinks = mobilePanel ? mobilePanel.querySelectorAll('a') : [];
+
+function setMenu(open) {
+  if (!menuButton || !mobilePanel) return;
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  mobilePanel.classList.toggle('open', open);
+  mobilePanel.setAttribute('aria-hidden', String(!open));
+  document.body.classList.toggle('menu-open', open);
+}
+
+if (menuButton && mobilePanel) {
+  menuButton.addEventListener('click', () => {
+    setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+  mobileLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', event => {
+    if (event.key === 'Escape') setMenu(false);
+  });
+  addEventListener('resize', () => {
+    if (innerWidth > 800) setMenu(false);
+  }, { passive: true });
+}
