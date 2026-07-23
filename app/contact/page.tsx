@@ -1,3 +1,0 @@
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
-export default function Contact(){return <><SiteHeader dark/><main className="contact-page"><section><p>START A PROJECT</p><h1>정리되지 않은 문제부터<br/>함께 이야기해 주세요.</h1><div className="contact-grid"><div><small>CALL</small><a href="tel:01054225650">010 5422 5650</a></div><div><small>WORKING RANGE</small><p>BRAND · DESIGN · SYSTEM<br/>OPERATION · AI PRODUCTION</p></div><div><small>OFFICE</small><p>인천광역시 서구 원당대로 1039,<br/>9층 916호 (원당동, 태경타워)</p></div></div><a className="contact-call" href="tel:01054225650">CALL NOW <span>↗</span></a></section></main><SiteFooter/></>}
