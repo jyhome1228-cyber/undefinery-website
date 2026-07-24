@@ -36,13 +36,21 @@
     .impact-grid article{min-height:180px;padding:26px;border-right:1px solid #303238;border-bottom:1px solid #303238;display:flex;flex-direction:column;justify-content:space-between}
     .impact-grid strong{font-size:clamp(34px,3.2vw,52px);line-height:1;font-weight:600;letter-spacing:-.05em}
     .impact-grid p{margin:28px 0 0;font-size:13px;line-height:1.65;color:#949aa4}
-    @media(max-width:1100px){.impact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .field-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#303238;border:1px solid #303238}
+    .field-card{background:#07090d}
+    .field-card figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:#11141a}
+    .field-card img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(100%);transition:transform .55s ease,filter .35s ease}
+    .field-card:hover img{transform:scale(1.025);filter:grayscale(0%)}
+    .field-card div{padding:20px 20px 22px}
+    .field-card small{display:block;margin-bottom:9px;font-size:10px;color:#737983}
+    .field-card h3{margin:0;font-size:15px;line-height:1.5;font-weight:600}
+    @media(max-width:1100px){.impact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.field-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:900px){
       .expert-intro,.expert-section-grid{grid-template-columns:1fr}
       .expert-photo{max-width:520px}
       .expert-section{padding-top:72px;padding-bottom:72px}
       .expert-row,.project-row{grid-template-columns:1fr;gap:9px}
-      .expertise-grid,.credential-list,.impact-grid{grid-template-columns:1fr}
+      .expertise-grid,.credential-list,.impact-grid,.field-grid{grid-template-columns:1fr}
       .expert-summary .lead-copy{font-size:18px}
     }
   </style>
@@ -63,7 +71,7 @@
     <section class="section expert-section">
       <div class="expert-intro">
         <figure class="expert-photo">
-          <img src="https://cdn.imweb.me/upload/S2023030963558ef55ba8e/abbf17449a65e.png" alt="박재영 대표 프로필">
+          <img src="assets/images/experts/profile.jpg" alt="박재영 대표 프로필">
         </figure>
         <div class="expert-summary">
           <small>FOUNDER · CREATIVE DIRECTOR</small>
@@ -211,6 +219,26 @@
           <article class="expert-row"><h3>STARTUP PROGRAMS</h3><p>인천스타트업파크 TRYOUT 및 스케일업 챌린지랩, 에코스타트업, 청년창업사관학교 등 창업지원 프로그램 참여</p></article>
           <article class="expert-row"><h3>OPERATING ORGANIZATION</h3><p>한국디자인진흥원 전문회사 등록, 인천디자인지원센터·중소벤처기업부 혁신바우처 등 디자인 수행기관 선정 이력</p></article>
           <article class="expert-row"><h3>SELECTED JUDGING</h3><p>현대자동차, 경찰청, 대한적십자사, 한국자산관리공사, 경기도 공공·사회적경제 디자인 공모전 등 심사위원 활동</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>07 — SELECTED FIELD EXPERIENCE</small>
+          <h2>FIELD<br>EXPERIENCE.</h2>
+        </div>
+        <div class="field-grid">
+          <article class="field-card"><figure><img src="assets/images/experts/startup-support.jpg" alt="초기창업 지원사업 현장" loading="lazy"></figure><div><small>STARTUP SUPPORT</small><h3>초기창업 지원사업</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/strong-small-business.jpg" alt="강한소상공인 성장지원 프로그램 현장" loading="lazy"></figure><div><small>LOCAL BUSINESS</small><h3>강한소상공인 성장지원</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/bluewhale.jpg" alt="블루웨일 인베스트먼트 프로그램 현장" loading="lazy"></figure><div><small>ACCELERATING</small><h3>블루웨일 인베스트먼트</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/hanyang.jpg" alt="한양대학교 창업 프로그램 현장" loading="lazy"></figure><div><small>UNIVERSITY PROGRAM</small><h3>한양대학교 창업 프로그램</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/incheon-startup.jpg" alt="인천스타트업파크 프로그램 현장" loading="lazy"></figure><div><small>STARTUP PARK</small><h3>인천스타트업파크</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/mysc.jpg" alt="MYSC 액셀러레이팅 프로그램 현장" loading="lazy"></figure><div><small>IMPACT ACCELERATING</small><h3>MYSC</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/whales.jpg" alt="웨일즈 스타트업 프로그램 현장" loading="lazy"></figure><div><small>STARTUP MENTORING</small><h3>웨일즈 스타트업</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/high-scaleup.jpg" alt="하이스케일업 프로그램 현장" loading="lazy"></figure><div><small>BUSINESS SCALE-UP</small><h3>하이스케일업</h3></div></article>
+          <article class="field-card"><figure><img src="assets/images/experts/local-content.jpg" alt="로컬콘텐츠 중점대학 강의 현장" loading="lazy"></figure><div><small>LOCAL CONTENT</small><h3>로컬콘텐츠 중점대학</h3></div></article>
         </div>
       </div>
     </section>
