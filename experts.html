@@ -1,4 +1,170 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Experts — Undefinery</title><link rel="stylesheet" href="assets/css/style.css"></head><body><header data-header></header><main>
-<section class="page-hero company-hero"><p>UNDEFINERY EXPERTS</p><h1>브랜드와 시스템을 함께 보는<br>전문가 네트워크.</h1><nav class="company-nav"><a href="about.html">01　ABOUT ↗</a><a class="active" href="experts.html">02　EXPERTS ↗</a><a href="news.html">03　NEWS ↗</a></nav></section>
-<section class="section black"><div class="split"><p class="label">01 — FOUNDER</p><div><h2>DESIGNING STRUCTURES<br>FOR GROWTH.</h2><div class="profile"><div class="profile-visual">PARK<br>JAEYOUNG</div><div><small>FOUNDER · CREATIVE DIRECTOR</small><h3>박재영</h3><p>브랜드 전략과 시각 디자인, 디지털 경험을 연결해 기업에 필요한 성장 구조를 설계합니다. 디자인을 조직과 브랜드가 지속적으로 활용하는 시스템으로 연구하고 실행합니다.</p></div></div><div class="career-grid"><article><small>EDUCATION & RESEARCH</small><h3>학력 및 연구</h3><p>국민대학교 디자인대학원 시각디자인 석사<br>서울과학기술대학교 IT디자인융합 박사과정<br>브랜딩·디자인 시스템·생성형 AI 기반 시각 연구</p></article><article><small>PROFESSIONAL FIELDS</small><h3>전문 분야</h3><p>브랜드 전략 및 아이덴티티<br>패키지·편집·디지털 디자인<br>기업 디자인 체계화<br>브랜드 운영 및 AI 콘텐츠 프로덕션</p></article><article><small>ACADEMIC & EDUCATION</small><h3>교육 및 활동</h3><p>대학 디자인 워크숍 및 캡스톤 강의<br>디자인 연구·학술 활동<br>브랜드·생성형 AI 실무 교육</p></article><article><small>PROJECT EXPERIENCE</small><h3>주요 프로젝트</h3><p>기업·식품·뷰티·헬스케어 브랜드 구축<br>패키지 및 웹사이트 개발<br>브랜드 운영과 기업 자료 통합관리</p></article></div></div></div></section>
-</main><footer data-footer></footer><script src="assets/js/common.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="언디파이너리 솔루션의 전문가와 디자인 연구·프로젝트 경험을 소개합니다.">
+  <title>Experts — Undefinery</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .expert-page{background:#07090d;color:#f4f4f1}
+    .expert-page .page-hero{padding-bottom:0}
+    .expert-page .page-hero h1{max-width:820px}
+    .expert-intro{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(42px,7vw,110px);align-items:end}
+    .expert-photo{overflow:hidden;aspect-ratio:4/5;background:#11141a;border:1px solid #303238}
+    .expert-photo img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(100%);opacity:.92}
+    .expert-summary small,.expert-section small{font-size:11px;font-weight:700;letter-spacing:.14em;color:#7f858f}
+    .expert-summary h2{margin:22px 0 6px;font-size:clamp(34px,3.6vw,56px);line-height:1.05;letter-spacing:-.055em;font-weight:600}
+    .expert-summary .name-en{margin:0 0 38px;font-size:18px;color:#a4a9b1}
+    .expert-summary .lead-copy{max-width:680px;margin:0;font-size:clamp(18px,1.55vw,24px);line-height:1.65;letter-spacing:-.035em}
+    .expert-summary .body-copy{max-width:680px;margin:28px 0 0;font-size:15px;line-height:1.85;color:#969ca6}
+    .expert-section{padding-top:96px;padding-bottom:96px;border-top:1px solid #303238}
+    .expert-section-grid{display:grid;grid-template-columns:1fr 2.2fr;gap:50px}
+    .expert-section h2{margin:18px 0 0;font-size:clamp(28px,2.3vw,40px);line-height:1.15;letter-spacing:-.045em;font-weight:600}
+    .expert-list{border-top:1px solid #303238}
+    .expert-row{display:grid;grid-template-columns:minmax(190px,.8fr) 1.7fr;gap:40px;padding:25px 0;border-bottom:1px solid #303238}
+    .expert-row h3{margin:0;font-size:15px;line-height:1.55;font-weight:600}
+    .expert-row p{margin:0;font-size:14px;line-height:1.75;color:#949aa4}
+    .expertise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #303238;border-left:1px solid #303238}
+    .expertise-grid article{min-height:170px;padding:28px;border-right:1px solid #303238;border-bottom:1px solid #303238}
+    .expertise-grid h3{margin:0 0 14px;font-size:17px;font-weight:600}
+    .expertise-grid p{margin:0;font-size:14px;line-height:1.75;color:#949aa4}
+    .credential-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:36px;border-top:1px solid #303238}
+    .credential-list p{margin:0;padding:20px 0;border-bottom:1px solid #303238;font-size:14px;line-height:1.65;color:#c5c8ce}
+    .project-row{grid-template-columns:minmax(170px,.65fr) 1.8fr}
+    @media(max-width:900px){
+      .expert-intro,.expert-section-grid{grid-template-columns:1fr}
+      .expert-photo{max-width:520px}
+      .expert-section{padding-top:72px;padding-bottom:72px}
+      .expert-row,.project-row{grid-template-columns:1fr;gap:9px}
+      .expertise-grid,.credential-list{grid-template-columns:1fr}
+      .expert-summary .lead-copy{font-size:18px}
+    }
+  </style>
+</head>
+<body class="company-page expert-page">
+  <header data-header></header>
+  <main>
+    <section class="page-hero company-hero">
+      <p>UNDEFINERY EXPERTS</p>
+      <h1>BRAND, DESIGN<br>& SYSTEM EXPERTISE.</h1>
+      <nav class="company-nav">
+        <a href="about.html">01　ABOUT ↗</a>
+        <a class="active" href="experts.html">02　EXPERTS ↗</a>
+        <a href="news.html">03　NEWS ↗</a>
+      </nav>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-intro">
+        <figure class="expert-photo">
+          <img src="https://cdn.imweb.me/upload/S2023030963558ef55ba8e/abbf17449a65e.png" alt="박재영 대표 프로필">
+        </figure>
+        <div class="expert-summary">
+          <small>FOUNDER · CREATIVE DIRECTOR</small>
+          <h2>박재영</h2>
+          <p class="name-en">JAEYOUNG PARK</p>
+          <p class="lead-copy">브랜드 전략과 시각 디자인, 디지털 경험을 연결해 기업에 필요한 성장 구조를 설계합니다.</p>
+          <p class="body-copy">디자인을 일회성 결과물이 아닌 조직과 브랜드가 지속적으로 활용하는 시스템으로 바라봅니다. 브랜드 아이덴티티와 패키지, 웹, 콘텐츠를 하나의 기준으로 연결하고 생성형 AI를 활용한 새로운 시각 제작 방식을 연구·실행합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>01 — EDUCATION & RESEARCH</small>
+          <h2>ACADEMIC<br>BACKGROUND.</h2>
+        </div>
+        <div class="expert-list">
+          <article class="expert-row">
+            <h3>서울과학기술대학교</h3>
+            <p>IT디자인융합전공 박사과정<br>디자인·기술·브랜드 경험의 융합 연구</p>
+          </article>
+          <article class="expert-row">
+            <h3>국민대학교</h3>
+            <p>시각디자인전공 석사<br>브랜드 아이덴티티와 패키지 디자인 연구</p>
+          </article>
+          <article class="expert-row">
+            <h3>RESEARCH</h3>
+            <p>친환경 패키지 디자인 인쇄를 위한 지류 특성 연구<br>린브랜딩 전략에서의 최소브랜드컨셉(MVB) 구현 사례 연구</p>
+          </article>
+          <article class="expert-row">
+            <h3>ACADEMIC ACTIVITY</h3>
+            <p>한국브랜드디자인학회 정회원<br>브랜드 디자인 연구·전시 및 생성형 AI 기반 시각 연구</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>02 — EXPERTISE</small>
+          <h2>DESIGN<br>EXPERTISE.</h2>
+        </div>
+        <div class="expertise-grid">
+          <article><h3>Brand Identity</h3><p>브랜드 전략, 네이밍, 로고와 그래픽 시스템을 하나의 기준으로 구축합니다.</p></article>
+          <article><h3>Package Design</h3><p>제품 구조와 인쇄·지류 특성을 고려한 패키지와 라벨 시스템을 설계합니다.</p></article>
+          <article><h3>Web & Digital Experience</h3><p>브랜드 홈페이지, 상세페이지와 디지털 접점의 일관된 경험을 만듭니다.</p></article>
+          <article><h3>Brand Operation</h3><p>기업 자료와 콘텐츠, 반복 제작물을 지속 가능한 운영 체계로 정리합니다.</p></article>
+          <article><h3>Local & Business Branding</h3><p>지역 자원과 제품, 기업의 사업 구조를 브랜드 언어와 시각 자산으로 전환합니다.</p></article>
+          <article><h3>AI Visual Production</h3><p>제품·모델·공간 이미지를 브랜드 기준에 맞는 확장형 시각 자산으로 제작합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>03 — SELECTED CREDENTIALS</small>
+          <h2>AWARDS<br>& ACTIVITY.</h2>
+        </div>
+        <div>
+          <div class="credential-list">
+            <p>2024 RED DOT CONCEPT DESIGN AWARD FINALIST</p>
+            <p>2024 ADOBE BEHANCE PACKAGING BEST BADGE</p>
+            <p>2024 ADOBE BEHANCE BRAND DESIGN BEST BADGE</p>
+            <p>2023 KOREA DESIGN EXHIBITION FINALIST</p>
+            <p>2022 PIN UP DESIGN AWARD</p>
+            <p>2021 KOREA STAR AWARDS</p>
+            <p>2021 ASIA DESIGN PRIZE FINALIST</p>
+            <p>30+ DESIGN COMPETITION AWARDS</p>
+          </div>
+          <div class="expert-list" style="margin-top:56px">
+            <article class="expert-row">
+              <h3>JUDGING EXPERIENCE</h3>
+              <p>현대자동차, 대한적십자사, 한국토지주택공사, 경찰청, 한국자산관리공사, 한국수력원자력 등 공공·기업 디자인 공모전 심사</p>
+            </article>
+            <article class="expert-row">
+              <h3>PROFESSIONAL RECORD</h3>
+              <p>한국디자인진흥원 전문회사 신고 13054호<br>한국디자인진흥원 패키지디자인 전문가</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>04 — SELECTED PROJECTS</small>
+          <h2>PROJECT<br>EXPERIENCE.</h2>
+        </div>
+        <div class="expert-list">
+          <article class="expert-row project-row"><h3>HOLLYS · GONG CHA KOREA</h3><p>브랜드 패키지 및 에디토리얼 디자인</p></article>
+          <article class="expert-row project-row"><h3>DELOITTE ANJIN</h3><p>기업 에디토리얼 디자인</p></article>
+          <article class="expert-row project-row"><h3>DONGKOOK PHARMACEUTICAL</h3><p>브랜드 웹 콘텐츠 및 상세페이지 디자인</p></article>
+          <article class="expert-row project-row"><h3>DONGWON INDUSTRIES</h3><p>브랜드 패키지 및 에디토리얼 디자인</p></article>
+          <article class="expert-row project-row"><h3>MEGA'GEN IMPLANT</h3><p>심포지엄 웹 콘텐츠 및 페이지 개발</p></article>
+          <article class="expert-row project-row"><h3>YONSEI HEALTH · KIDS10 · HEALTHY:D</h3><p>헬스케어 브랜드 디자인</p></article>
+          <article class="expert-row project-row"><h3>HONGIK UNIVERSITY · KOOKMIN UNIVERSITY</h3><p>산학협력 홍보물과 박물관 전시 프로젝트</p></article>
+          <article class="expert-row project-row"><h3>VISANG · MEGASTUDY</h3><p>교육 브랜드 에디토리얼 및 웹 디자인</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer data-footer></footer>
+  <script src="assets/js/common.js"></script>
+</body>
+</html>
