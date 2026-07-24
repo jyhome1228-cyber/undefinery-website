@@ -26,10 +26,39 @@ const modelProfiles = [
   base:`assets/images/model-profiles/${slug}`
 }));
 
+const englishProfileCopy = {
+  "kim-seoa": ["Her composed expression and clean styling suit premium beauty, fashion, and lifestyle campaigns.", "Quietly decisive, she expresses herself through precise choices rather than excess.", "A quiet studio at dawn, with one song playing on repeat while I organize the images in my head.", "An old silver compact. It reminds me that real taste can remain unchanged over time.", "People sometimes read me as distant. I simply prefer not to spend emotion carelessly.", "Remembering the small habits of someone I care about. I like affection that never needs to announce itself."],
+  "kim-jinha": ["Her relaxed, natural presence creates sincere moments for wellness, living, and editorial brands.", "She reads the temperature of a room slowly and brings an effortless sense of balance.", "A sunlit window, watering plants and making tea. That is when everything feels unhurried.", "A handmade glass vase marked by years of use. Its imperfections make it worth keeping.", "Quietness is often mistaken for passivity, but I step forward quickly when a moment truly needs me.", "Sharing a room while each person does their own thing. I believe silence can be a form of conversation."],
+  "novak": ["A bold global presence built for fashion, technology, and concept-driven campaigns.", "He enjoys unfamiliar territory and instinctively rewrites familiar rules in his own way.", "Somewhere high above the city. A wider view always makes my ideas feel larger.", "A metal case covered in travel stickers. It is a map of every place that has changed me.", "Confidence can look effortless, but I prepare more than most people realize. Courage begins with preparation.", "Moving toward a wider world together without trying to reshape each other."],
+  "dan-nahee": ["Her soft expression and elegant presence bring nuance to beauty, jewelry, and fashion imagery.", "Sensitive and grounded, she notices beauty in moments most people pass by.", "A small flower shop or an old bookstore. Quiet fragrance and the texture of paper settle my mind.", "A pair of pearl earrings from my grandmother. I wear them more often on ordinary days than special ones.", "A gentle appearance does not mean I have no boundaries. I am very clear about what I value.", "Walking beside someone at the same pace—never leading, never leaving them behind."],
+  "david-kim": ["A polished, trustworthy presence suited to business, technology, and premium lifestyle communication.", "He finds the essential point in complex situations and turns it into a clear direction.", "A nearly empty café in the morning. One page of notes can bring the whole day into focus.", "The black fountain pen from my first project. I still reach for it whenever a decision matters.", "Planning ahead can look calculating. I simply do not want anyone's time to be wasted.", "Respecting each other's ambitions while still being the first person either of us can call."],
+  "robin-fer": ["A classic, cinematic character for fashion editorials, travel stories, and cultural campaigns.", "He finds a film-like scene in familiar places and collects stories without rushing them.", "The last row of an old cinema. I stay until the lights come on and the room becomes real again.", "A small film camera. I like that the result cannot be checked immediately.", "I enjoy solitude, but I am not lonely. Some stories can only be heard when everything else is quiet.", "Seeing the same scene differently, then taking time to exchange the stories it gave us."],
+  "lina-seo": ["Bright, approachable energy for beauty, food, and lifestyle campaigns with broad appeal.", "She closes the distance between unfamiliar people and places with natural warmth.", "A small weekend market, tasting something new and exchanging a few words with the vendors.", "A clear box filled with notes from friends. I read one whenever I need to borrow a little courage.", "People assume a bright person has no worries. Smiling is simply how I move through difficult moments.", "Arriving with something delicious for no particular reason and sharing it together."],
+  "park-seojun": ["A clean urban image for contemporary menswear, grooming, and technology brands.", "He removes what is unnecessary and enjoys a city rhythm defined by function and attitude.", "A studio still lit late at night. I focus best after the city becomes quiet.", "A card wallet with worn edges. It began my habit of carrying only what I need.", "I can appear indifferent, but I stay deeply committed to the people and work I choose.", "When two lives make room for each other naturally within the rhythm of every day."],
+  "park-taejun": ["An active, casual presence that adds movement to sports, outdoor, and everyday lifestyle content.", "He gains energy through motion and treats every setback as a record for the next attempt.", "A riverside running path. The same route feels new whenever the weather or pace changes.", "The race bib from my first finish. It reminds me that completing something matters more than looking effortless.", "I may seem easygoing, but I always finish what I promise. Consistency is my strongest trait.", "Running toward something new together and adjusting pace when one of us needs it."],
+  "seo-yerin": ["A clear, minimal presence for skincare, wellness, and refined living imagery.", "She creates a clean pause in busy environments through a calm and disciplined sensibility.", "A still pool or a room with white bedding. Empty space helps me breathe more slowly.", "A small white porcelain cup. I love its smooth temperature and uncomplicated form.", "A soft appearance is sometimes mistaken for having no standards. My personal rhythm is actually very firm.", "Time with someone who makes it easier to breathe more slowly."],
+  "seo-harin": ["A chic, distinctive character capable of carrying strong fashion and beauty concepts.", "She combines unexpected elements through a sharp personal standard and turns them into style.", "A gallery late at night, just after installation. I like the tension before anyone else has seen it.", "A pair of black leather gloves. A small detail can change the attitude of an ordinary outfit.", "Precision is often called difficulty. I simply do not let ambiguity weaken a good result.", "Seeing each other's sharper edges as character, not something that needs to be corrected."],
+  "song-eunha": ["A warm, graceful presence that brings trust to wellness, beauty, and lifestyle brands.", "She notices emotional details and creates an atmosphere that feels comfortable and lasting.", "An afternoon kitchen, preparing food slowly and choosing the right plate for it.", "A linen apron repaired several times. I love objects that become more comfortable with age.", "Kindness does not mean having no boundaries. Protecting my own limits is what lets warmth last.", "Preparing a warm meal without being asked when someone is having a difficult day."],
+  "yoon-seulbi": ["Fresh, expressive energy for young fashion, beauty, and social-first campaigns.", "She turns quick curiosity and changing cultural signals into lively visual moments.", "A street with a photo booth and a record shop. The best discoveries happen without a plan.", "A tiny sticker photo with friends. The imperfect expressions make it feel more honest.", "Spontaneity is not thoughtlessness. I simply find playful answers faster than most people do.", "A small joke that turns an ordinary day into something worth remembering."],
+  "lee-yuna": ["A poised premium image for luxury beauty, jewelry, and refined fashion campaigns.", "Her controlled movement and steady attitude create a quiet but lasting presence.", "A quiet hotel lounge, watching the room move while I arrange the rest of my day.", "A thin gold ring from my mother. It is understated enough to belong with anything.", "Reserve is sometimes read as distance. Once trust is built, I tend to protect a relationship for a long time.", "Showing respect through the same thoughtful attitude every day, not only through grand gestures."],
+  "lee-yujun": ["A fresh, casual presence for fashion, education, and approachable lifestyle content.", "He enjoys the process of learning and builds connection through honest reactions.", "A basketball court near school. Moving with other people clears my mind.", "A small speaker I assembled myself. It was imperfect, but I remember finishing it.", "Looking young does not mean I am careless. I check every responsibility more than once.", "A relationship where neither person needs to perform in order to laugh comfortably."],
+  "jung-haram": ["A modern, versatile image that adapts across fashion, beauty, and commercial campaigns.", "She understands the purpose of a scene quickly while preserving her own visual balance.", "An empty rental studio with beautiful light. I like imagining what the space could become.", "A paint-marked sketchbook filled with ideas before they learned how to be finished.", "Versatility can be mistaken for being ordinary. Keeping the essential idea clear in any setting is my identity.", "Blending different tastes until they become a new language shared by two people."],
+  "jung-hoyoung": ["A mature, dependable presence for business, finance, and healthcare communication.", "Experience gives him a steady point of view, even when the situation is complex.", "An early morning study, reading the news and preparing quietly before the day begins.", "My father's wristwatch. I like to think I inherited his respect for time with it.", "A serious first impression hides a dry sense of humor that appears around people I trust.", "Being able to speak with complete honesty when a difficult decision has to be made."],
+  "timber": ["A rugged, nature-driven character for outdoor, sports, and travel storytelling.", "He works directly with his environment and creates a path through action rather than explanation.", "A forest after rain or a garage with a workbench. Earth and timber feel more familiar than polished rooms.", "A well-used multitool. Every scratch remembers a place and a problem it helped solve.", "A rough exterior does not mean carelessness. I handle nature and useful objects with great respect.", "Staying beside someone through a long journey and letting actions carry the meaning."],
+  "han-siwoo": ["A gentle, intelligent image for education, technology, and everyday service brands.", "He follows calm curiosity and translates difficult ideas into language people can trust.", "A library open late, choosing one book at a time from a field I know nothing about.", "My first major textbook, filled with notes in the margins. It records everything I once did not know.", "Silence can look like disinterest. I usually remember and consider far more than I say in the moment.", "Never treating each other's questions as a burden and looking for answers together."],
+  "han-yujin": ["A lively contemporary presence that adds energy to beauty, fashion, and social campaigns.", "She absorbs new culture quickly and expresses it through a distinctly current sensibility.", "A music-filled pop-up or a crowded street. Watching how people style themselves is endlessly interesting.", "A fluorescent wristband from a concert. One glance brings back the sound and movement of that night.", "Confidence does not erase nerves. Before something important, I often smile even more brightly.", "Listening to a favorite song together and laughing at exactly the same moment."],
+  "heo-chanhee": ["A sharp, sophisticated image for menswear, grooming, and premium brand campaigns.", "He brings precise taste and restrained tension to even the most familiar scene.", "A barbershop after the final appointment or a quiet tailor's studio. Precise handwork holds my attention.", "The cuff links from my first perfectly fitted suit. They taught me how a small detail changes an entire attitude.", "Perfectionism is not a need to control everything. I simply do not want an important detail to disappear.", "Understanding and respecting even the most exacting standards in each other."]
+};
+
+modelProfiles.forEach(model => {
+  const copy = englishProfileCopy[model.slug];
+  [model.direction, model.character, model.place, model.object, model.misunderstood, model.romance] = copy;
+});
+
 const catalog = document.querySelector("[data-model-catalog]");
 if (catalog) {
   catalog.innerHTML = modelProfiles.map((m,i)=>`
-    <a class="model-card" href="models/${m.slug}.html" aria-label="${m.name} 상세 프로필 보기">
+    <a class="model-card" href="models/${m.slug}.html" aria-label="View ${m.name} profile">
       <span class="model-card-images">
         <img src="${m.base}/1.webp" alt="${m.name} AI model" loading="${i<3?"eager":"lazy"}">
         <img class="model-card-hover" src="${m.base}/2.webp" alt="" loading="lazy">
@@ -51,13 +80,16 @@ if (detailRoot) {
       <div>
         <p>AI MODEL ${model.no}</p>
         <h1>${model.name}</h1>
-        <span>${model.ko}</span>
+        <span>${model.archetype}</span>
       </div>
       <dl>
         <div><dt>MOOD</dt><dd>${model.mood}</dd></div>
         <div><dt>BEST FOR</dt><dd>${model.use}</dd></div>
         <div><dt>PRODUCTION</dt><dd>CUSTOM STYLING AVAILABLE</dd></div>
       </dl>
+    </section>
+    <section class="model-profile-gallery model-profile-gallery-top" aria-label="${model.name} opening gallery">
+      ${[1,2,3].map((n,i)=>`<figure><img src="${assetRoot}${model.base}/${n}.webp" alt="${model.name} profile ${n}" ${i?"loading=\"lazy\"":""}></figure>`).join("")}
     </section>
     <section class="model-persona">
       <p class="model-section-label">PROFILE</p>
@@ -75,26 +107,23 @@ if (detailRoot) {
         <div><small>CAMPAIGN TONE</small><strong>${model.direction}</strong></div>
       </div>
     </section>
+    <section class="model-profile-gallery model-profile-gallery-bottom" aria-label="${model.name} secondary gallery">
+      ${[4,5].map(n=>`<figure><img src="${assetRoot}${model.base}/${n}.webp" alt="${model.name} profile ${n}" loading="lazy"></figure>`).join("")}
+      <figure class="gallery-monochrome"><img src="${assetRoot}${model.base}/1.webp" alt="${model.name} monochrome profile" loading="lazy"></figure>
+    </section>
     <section class="model-character-interview">
       <p class="model-section-label">CHARACTER INTERVIEW</p>
       <ol>
-        <li><span>01</span><div><h2>지금 막 무엇을 하고 있었나요?</h2><p>${model.direction} 다음 장면을 위해 의상과 빛의 균형을 천천히 확인하고 있었어요.</p></div></li>
-        <li><span>02</span><div><h2>가장 편안함을 느끼는 장소는 어디인가요?</h2><p>${model.place}</p></div></li>
-        <li><span>03</span><div><h2>가장 소중하게 간직하는 물건은 무엇인가요?</h2><p>${model.object}</p></div></li>
-        <li><span>04</span><div><h2>사람들이 자주 오해하는 모습이 있나요?</h2><p>${model.misunderstood}</p></div></li>
-        <li><span>05</span><div><h2>카메라 앞에서 가장 중요하게 생각하는 것은?</h2><p>${model.direction} 정해진 표정을 반복하기보다 브랜드가 전하려는 감정의 온도를 먼저 이해해요.</p></div></li>
-        <li><span>06</span><div><h2>당신에게 로맨스란 무엇인가요?</h2><p>${model.romance}</p></div></li>
+        <li><span>01</span><div><h2>How would you describe your presence on camera?</h2><p>${model.direction}</p></div></li>
+        <li><span>02</span><div><h2>Where do you feel most at ease?</h2><p>${model.place}</p></div></li>
+        <li><span>03</span><div><h2>What is one object you would never part with?</h2><p>${model.object}</p></div></li>
+        <li><span>04</span><div><h2>What do people often misunderstand about you?</h2><p>${model.misunderstood}</p></div></li>
+        <li><span>05</span><div><h2>What matters most when you step in front of the camera?</h2><p>I begin by understanding the emotional temperature of the brand. A convincing image comes from responding to the story, not repeating a fixed expression.</p></div></li>
+        <li><span>06</span><div><h2>What does a meaningful connection look like to you?</h2><p>${model.romance}</p></div></li>
       </ol>
     </section>
-    <section class="model-profile-gallery" aria-label="${model.name} 이미지 갤러리">
-      ${[1,2,3,4,5].map((n,i)=>`<figure class="gallery-${i+1}"><img src="${assetRoot}${model.base}/${n}.webp" alt="${model.name} profile ${n}" ${i?"loading=\"lazy\"":""}></figure>`).join("")}
-    </section>
     <section class="model-profile-note">
-      <p>CREATE WITH ${model.name}</p>
-      <h2>이 페르소나를 브랜드의<br>새로운 장면으로 확장합니다.</h2>
-      <div>
-        <p>목록의 이미지는 기본 무드와 활용 가능성을 보여주는 예시입니다. 실제 프로젝트에서는 캠페인 목적과 매체 규격에 맞춰 의상, 표정, 포즈와 공간을 새롭게 설계합니다.</p>
-        <a href="${assetRoot}contact.html">이 모델로 프로젝트 문의 <span>↗</span></a>
-      </div>
+      <p>${model.name} · AI MODEL ${model.no}</p>
+      <h2>EXPLORE THIS MODEL<br>FOR YOUR NEXT PROJECT.</h2>
     </section>`;
 }
