@@ -67,6 +67,22 @@
 .solution-principles span{font-size:10px;color:#777;letter-spacing:.12em}
 .solution-principles h2{margin:16px 0 12px;font-size:14px;letter-spacing:.08em;font-weight:600}
 .solution-principles p{margin:0;font-size:14px;line-height:1.7;color:#666}
+.solutions-dark{background:#07090d;color:#f4f4f1}
+.solutions-dark .solutions-hero,.solutions-dark .solutions-page,.solutions-dark .solutions-cta{background:#07090d;color:#f4f4f1}
+.solutions-dark .solutions-hero-intro,.solutions-dark .solutions-page article{border-color:#303238}
+.solutions-dark .solutions-hero-intro>p,.solutions-dark .solution-principles p,.solutions-dark .solutions-page p,.solutions-dark .solutions-cta>p:not(:first-child){color:#9a9fa8}
+.solutions-dark .solution-principles span,.solutions-dark .solutions-page small{color:#747a84}
+.solutions-dark .solution-principles article,.solutions-dark .solutions-page ul{border-color:#303238}
+.solutions-dark .solutions-page li{border-color:#303238;color:#fff;font-size:12px;font-weight:600;letter-spacing:.08em}
+.solutions-dark .solutions-page h2{color:#fff;text-transform:uppercase}
+.solutions-dark .solutions-page h3{color:#d7d9de;font-weight:500}
+.solutions-cta{border-top:1px solid #303238}
+.solutions-cta>p:not(:first-child){max-width:620px;font-size:16px;line-height:1.8}
+.company-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:72px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.company-nav a{padding:20px 18px;border-right:1px solid var(--line);font-size:13px;font-weight:500}
+.company-nav a:first-child{padding-left:0}
+.company-nav a:last-child{border-right:0}
+.company-nav a.active{font-weight:700}
 .site-footer{padding-top:88px}
 .footer-lead{grid-template-columns:.8fr 2.2fr;padding-bottom:78px}
 .footer-lead h2{font-size:clamp(28px,2.3vw,38px);line-height:1.25}
@@ -90,6 +106,9 @@
  .solution-principles article{padding:22px 0;border-top:1px solid var(--line)}
  .footer-directory{grid-template-columns:1fr 1fr;gap:46px 24px}
  .footer-brand{grid-column:1/-1}
+ .company-nav{grid-template-columns:1fr}
+ .company-nav a,.company-nav a:first-child{padding:16px 0;border-right:0;border-bottom:1px solid var(--line)}
+ .company-nav a:last-child{border-bottom:0}
 }
 @media(max-width:560px){
  .footer-directory{grid-template-columns:1fr}
