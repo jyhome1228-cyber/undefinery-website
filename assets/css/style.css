@@ -96,7 +96,65 @@
  .footer-brand{grid-column:auto}
 }
 
+/* AI model catalog and individual profiles */
+.model-catalog-page,.model-detail-page{background:#070a10;color:#fff}
+.model-catalog{grid-template-columns:repeat(3,minmax(0,1fr));max-width:var(--content-max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.model-card{display:block;min-width:0;color:inherit}
+.model-card-images{position:relative;display:block;overflow:hidden;background:#17191d}
+.model-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:none;transition:opacity .32s ease,transform .45s ease}
+.model-card-hover{position:absolute;inset:0;opacity:0}
+.model-card:hover .model-card-hover{opacity:1}
+.model-card:hover img{filter:none;transform:scale(1.015)}
+.model-card-info{display:flex;align-items:end;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid #303238}
+.model-card-info small{font-size:11px;letter-spacing:.1em;color:#737984}
+.model-card-info strong{font-size:17px;font-weight:500;letter-spacing:.01em}
+.model-profile-head{display:grid;grid-template-columns:1fr 2fr 1fr;gap:40px;max-width:1440px;margin:auto;padding:170px 24px 84px;border-bottom:1px solid #292c32}
+.model-profile-head>a{align-self:start;font-size:12px;letter-spacing:.1em;color:#8b919a}
+.model-profile-head p{margin:0 0 24px;font-size:12px;letter-spacing:.14em;color:#777e88}
+.model-profile-head h1{margin:0;font-size:clamp(42px,4vw,60px);font-weight:600;line-height:1;letter-spacing:-.05em}
+.model-profile-head>div>span{display:block;margin-top:18px;color:#8f949c}
+.model-profile-head dl{margin:0}
+.model-profile-head dl div{padding:13px 0;border-top:1px solid #303238}
+.model-profile-head dt{margin-bottom:7px;font-size:10px;letter-spacing:.12em;color:#737984}
+.model-profile-head dd{margin:0;font-size:12px}
+.model-profile-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1440px;margin:auto;padding:72px 24px 120px}
+.model-profile-gallery figure{margin:0;overflow:hidden;background:#17191d}
+.model-profile-gallery figure:first-child{grid-row:span 2}
+.model-profile-gallery img{display:block;width:100%;height:100%;min-height:420px;object-fit:cover}
+.model-profile-gallery figure:first-child img{aspect-ratio:4/5}
+.model-profile-gallery figure:not(:first-child) img{aspect-ratio:4/3}
+.model-profile-story{display:grid;grid-template-columns:1fr 2fr;gap:42px 40px;max-width:1440px;margin:auto;padding:0 24px 120px}
+.model-profile-story>p{margin:7px 0 0;font-size:11px;letter-spacing:.13em;color:#777e88}
+.model-profile-story>div{padding-top:2px;border-top:1px solid #303238}
+.model-profile-story h2{max-width:880px;margin:34px 0 28px;font-size:clamp(30px,3.2vw,46px);font-weight:500;line-height:1.2;letter-spacing:-.045em}
+.model-profile-story h3{margin:34px 0 22px;font-size:clamp(24px,2.5vw,34px);font-weight:500;line-height:1.3;letter-spacing:-.035em}
+.model-profile-story div>p{max-width:760px;margin:0;color:#aeb3bc;font-size:16px;line-height:1.9}
+.model-interview{padding-bottom:12px}
+.model-profile-note{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:110px max(24px,calc((100vw - 1392px)/2)) 125px;background:#e5e3dd;color:#0b0c0f}
+.model-profile-note>p{font-size:12px;letter-spacing:.13em}
+.model-profile-note h2{grid-column:2;margin:0;max-width:900px;font-size:clamp(30px,3vw,44px);line-height:1.18;letter-spacing:-.045em}
+.model-profile-note>div{grid-column:2;display:flex;justify-content:space-between;gap:60px;margin-top:24px}
+.model-profile-note>div p{max-width:580px;color:#555961;line-height:1.75}
+.model-profile-note a{align-self:end;min-width:290px;padding:18px 0;border-bottom:1px solid;font-weight:700}
 
+@media(max-width:900px){
+ .model-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .model-card-info{display:block;padding:12px 2px}
+ .model-card-info strong{display:block;margin-top:5px;font-size:14px}
+ .model-card-info small{font-size:9px}
+ .model-card-hover{display:none}
+ .model-profile-head{grid-template-columns:1fr;padding:125px 22px 58px}
+ .model-profile-head h1{font-size:11vw}
+ .model-profile-gallery{grid-template-columns:1fr;gap:8px;padding:30px 10px 75px}
+ .model-profile-gallery figure:first-child{grid-row:auto}
+ .model-profile-gallery img,.model-profile-gallery figure:not(:first-child) img{min-height:0;aspect-ratio:4/5}
+ .model-profile-story{grid-template-columns:1fr;padding:0 22px 75px}
+ .model-profile-story>div{padding-bottom:25px}
+ .model-profile-note{grid-template-columns:1fr;padding:75px 22px 85px}
+ .model-profile-note h2,.model-profile-note>div{grid-column:1}
+ .model-profile-note>div{display:block}
+ .model-profile-note a{display:block;margin-top:38px}
+}
 /* 2026-07 production catalog unification */
 .production-catalog-hero{min-height:auto;padding-top:175px;padding-bottom:86px}
 .production-catalog-hero h1{margin-bottom:42px}
