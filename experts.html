@@ -32,12 +32,17 @@
     .credential-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:36px;border-top:1px solid #303238}
     .credential-list p{margin:0;padding:20px 0;border-bottom:1px solid #303238;font-size:14px;line-height:1.65;color:#c5c8ce}
     .project-row{grid-template-columns:minmax(170px,.65fr) 1.8fr}
+    .impact-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid #303238;border-left:1px solid #303238}
+    .impact-grid article{min-height:180px;padding:26px;border-right:1px solid #303238;border-bottom:1px solid #303238;display:flex;flex-direction:column;justify-content:space-between}
+    .impact-grid strong{font-size:clamp(34px,3.2vw,52px);line-height:1;font-weight:600;letter-spacing:-.05em}
+    .impact-grid p{margin:28px 0 0;font-size:13px;line-height:1.65;color:#949aa4}
+    @media(max-width:1100px){.impact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:900px){
       .expert-intro,.expert-section-grid{grid-template-columns:1fr}
       .expert-photo{max-width:520px}
       .expert-section{padding-top:72px;padding-bottom:72px}
       .expert-row,.project-row{grid-template-columns:1fr;gap:9px}
-      .expertise-grid,.credential-list{grid-template-columns:1fr}
+      .expertise-grid,.credential-list,.impact-grid{grid-template-columns:1fr}
       .expert-summary .lead-copy{font-size:18px}
     }
   </style>
@@ -66,6 +71,22 @@
           <p class="name-en">JAEYOUNG PARK</p>
           <p class="lead-copy">브랜드 전략과 시각 디자인, 디지털 경험을 연결해 기업에 필요한 성장 구조를 설계합니다.</p>
           <p class="body-copy">디자인을 일회성 결과물이 아닌 조직과 브랜드가 지속적으로 활용하는 시스템으로 바라봅니다. 브랜드 아이덴티티와 패키지, 웹, 콘텐츠를 하나의 기준으로 연결하고 생성형 AI를 활용한 새로운 시각 제작 방식을 연구·실행합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>AT A GLANCE</small>
+          <h2>EXPERIENCE<br>IN NUMBERS.</h2>
+        </div>
+        <div class="impact-grid">
+          <article><strong>400+</strong><p>브랜드·패키지·웹·콘텐츠 등 디자인 프로젝트 수행</p></article>
+          <article><strong>30+</strong><p>정부·지자체·대학·기관 연계 지원사업 수행</p></article>
+          <article><strong>10억+</strong><p>클라이언트 지원 연계 및 사업화 프로젝트 누적 규모</p></article>
+          <article><strong>50+</strong><p>국내외 디자인 어워드·공모전 수상 및 선정</p></article>
+          <article><strong>20+</strong><p>공공·기업 디자인 심사, 강의와 창업 멘토링 활동</p></article>
         </div>
       </div>
     </section>
@@ -160,6 +181,36 @@
           <article class="expert-row project-row"><h3>YONSEI HEALTH · KIDS10 · HEALTHY:D</h3><p>헬스케어 브랜드 디자인</p></article>
           <article class="expert-row project-row"><h3>HONGIK UNIVERSITY · KOOKMIN UNIVERSITY</h3><p>산학협력 홍보물과 박물관 전시 프로젝트</p></article>
           <article class="expert-row project-row"><h3>VISANG · MEGASTUDY</h3><p>교육 브랜드 에디토리얼 및 웹 디자인</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>05 — LECTURES & MENTORING</small>
+          <h2>KNOWLEDGE<br>SHARING.</h2>
+        </div>
+        <div class="expert-list">
+          <article class="expert-row"><h3>UNIVERSITY LECTURES</h3><p>서일대학교 AI콘텐츠융합학부 전공 강의, 청운대학교 로컬콘텐츠중점대학 교양·로컬브랜딩 강의</p></article>
+          <article class="expert-row"><h3>BRANDING SEMINARS</h3><p>한국스탠포드디자인연구소 디자이너 세미나, 대학·기관 대상 브랜드 전략 및 디자인 실무 특강</p></article>
+          <article class="expert-row"><h3>STARTUP MENTORING</h3><p>블루웨일 웨일즈 배치프로그램, 에코스타트업, 캠퍼스타운 등 초기기업의 브랜딩·성장전략 멘토링과 심사</p></article>
+          <article class="expert-row"><h3>IR & BUSINESS CONSULTING</h3><p>대학 창업기업 및 하이스케일업 기업의 브랜드 전략, IR 고도화와 투자유치 커뮤니케이션 컨설팅</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expert-section">
+      <div class="expert-section-grid">
+        <div>
+          <small>06 — PUBLIC PROJECTS</small>
+          <h2>BUSINESS<br>CONSULTING.</h2>
+        </div>
+        <div class="expert-list">
+          <article class="expert-row"><h3>BRAND & DESIGN SUPPORT</h3><p>예비창업·초기창업 패키지, 여성창업 브랜드 지원, 소상공인 상품개선, 로컬콘텐츠중점대학 등 브랜드 구축·개선 사업 수행</p></article>
+          <article class="expert-row"><h3>STARTUP PROGRAMS</h3><p>인천스타트업파크 TRYOUT 및 스케일업 챌린지랩, 에코스타트업, 청년창업사관학교 등 창업지원 프로그램 참여</p></article>
+          <article class="expert-row"><h3>OPERATING ORGANIZATION</h3><p>한국디자인진흥원 전문회사 등록, 인천디자인지원센터·중소벤처기업부 혁신바우처 등 디자인 수행기관 선정 이력</p></article>
+          <article class="expert-row"><h3>SELECTED JUDGING</h3><p>현대자동차, 경찰청, 대한적십자사, 한국자산관리공사, 경기도 공공·사회적경제 디자인 공모전 등 심사위원 활동</p></article>
         </div>
       </div>
     </section>
