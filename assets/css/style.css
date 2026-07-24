@@ -83,6 +83,16 @@
 .company-nav a:first-child{padding-left:0}
 .company-nav a:last-child{border-right:0}
 .company-nav a.active{font-weight:700}
+.site-header{color:#fff}
+.nav-dropdown{min-width:188px;text-align:left}
+body,main,.section,.page-hero,.production-service,.model-catalog-cta,.solutions-cta{background:#07090d;color:#f4f4f1}
+.soft,.production-teaser{background:#0b0d11;color:#f4f4f1}
+.lead,.hero-note,.profile p,.career-grid p,.solutions-page p,.service-copy>p,.service-copy>div>p,.model-catalog-intro p{color:#9a9fa8}
+.number-list,.index-list,.filters,.company-nav,.solutions-page article,.production-service,.career-grid{border-color:#303238}
+.number-list li,.index-list a,.company-nav a,.solutions-page li,.service-copy li,.career-grid article{border-color:#303238}
+.company-hero{padding-bottom:0}
+.company-nav{margin-top:82px}
+.company-nav a{display:flex;align-items:center;min-height:58px;color:#fff}
 .site-footer{padding-top:88px}
 .footer-lead{grid-template-columns:.8fr 2.2fr;padding-bottom:78px}
 .footer-lead h2{font-size:clamp(28px,2.3vw,38px);line-height:1.25}
