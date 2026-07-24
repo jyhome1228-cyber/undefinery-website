@@ -86,6 +86,9 @@
 .site-header{color:#fff}
 .nav-dropdown{min-width:188px;text-align:left}
 body,main,.section,.page-hero,.production-service,.model-catalog-cta,.solutions-cta{background:#07090d;color:#f4f4f1}
+.company-page,.company-page main,.company-page .page-hero,.company-page .section{background:#07090d;color:#f4f4f1}
+.company-page .number-list,.company-page .number-list li,.company-page .company-nav,.company-page .company-nav a{border-color:#303238}
+.company-page .lead{color:#9a9fa8}
 .soft,.production-teaser{background:#0b0d11;color:#f4f4f1}
 .lead,.hero-note,.profile p,.career-grid p,.solutions-page p,.service-copy>p,.service-copy>div>p,.model-catalog-intro p{color:#9a9fa8}
 .number-list,.index-list,.filters,.company-nav,.solutions-page article,.production-service,.career-grid{border-color:#303238}
@@ -94,7 +97,7 @@ body,main,.section,.page-hero,.production-service,.model-catalog-cta,.solutions-
 .company-nav{margin-top:82px}
 .company-nav a{display:flex;align-items:center;min-height:58px;color:#fff}
 .site-footer{padding-top:88px}
-.footer-lead{grid-template-columns:.8fr 2.2fr;padding-bottom:78px}
+.footer-lead{grid-template-columns:1fr 2.2fr;gap:50px;padding-bottom:78px}
 .footer-lead h2{font-size:clamp(28px,2.3vw,38px);line-height:1.25}
 .footer-description{max-width:620px;margin:24px 0 4px;font-size:15px;line-height:1.75;color:#8d929c}
 .footer-lead a{font-size:14px;font-weight:500}
@@ -109,6 +112,14 @@ body,main,.section,.page-hero,.production-service,.model-catalog-cta,.solutions-
 .footer-directory nav a:hover{color:#fff}
 .footer-address{margin:30px 0 0;font-size:11px;line-height:1.7;color:#777b84}
 .footer-legal{border-top:1px solid #303238}
+
+@media(min-width:901px){
+ .site-header{overflow:visible}
+ .site-header>nav{height:104px}
+ .nav-item{height:104px}
+ .nav-dropdown{top:100%;z-index:30;margin-top:-26px}
+ .nav-dropdown::before{content:"";position:absolute;left:0;right:0;top:-26px;height:26px}
+}
 
 @media(max-width:900px){
  .solutions-hero-intro{grid-template-columns:1fr;margin-top:38px}
