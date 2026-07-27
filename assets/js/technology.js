@@ -1,3 +1,8 @@
+const widgetStyle=document.createElement("link");
+widgetStyle.rel="stylesheet";
+widgetStyle.href="assets/css/technology-widgets-fix.css";
+document.head.appendChild(widgetStyle);
+
 const technologyGrid=document.querySelector("[data-technology-grid]");
 const technologyToggle=document.querySelector("[data-technology-toggle]");
 const technologyHero=document.querySelector("[data-technology-hero]");
