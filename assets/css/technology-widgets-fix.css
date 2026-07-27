@@ -1,0 +1,30 @@
+.widget-object{
+  --widget-scale:1;
+  transform-origin:center center;
+}
+
+.widget-small{
+  --widget-scale:.68;
+  width:102px;
+  height:82px;
+  margin-bottom:8px;
+}
+
+.widget-tiny{
+  --widget-scale:.46;
+  width:70px;
+  height:56px;
+  margin:0 0 18px;
+  transform-origin:left bottom;
+}
+
+@keyframes widgetFloat{
+  0%,100%{transform:scale(var(--widget-scale)) translateY(0) rotateZ(-1deg)}
+  50%{transform:scale(var(--widget-scale)) translateY(-10px) rotateZ(1deg)}
+}
+
+@media(max-width:620px){
+  .widget-object{--widget-scale:.82;width:123px;height:98px}
+  .widget-small{--widget-scale:.64;width:96px;height:77px}
+  .widget-tiny{--widget-scale:.44;width:66px;height:53px}
+}
