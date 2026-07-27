@@ -1,0 +1,178 @@
+/* ENABLE AI readability refinement: raise supporting text without changing main H1/H2 titles */
+
+/* Hero micro typography */
+.technology-hero-head,
+.technology-hero-foot{
+  font-size:10px;
+}
+
+.tech-node>span,
+.technology-core .core-index,
+.technology-core small{
+  font-size:10px;
+}
+
+.tech-node h2{
+  font-size:15px;
+}
+
+.tech-node p{
+  font-size:10px;
+}
+
+/* Section labels and explanatory copy */
+.tech-section-label{
+  font-size:11px;
+}
+
+.tech-kicker{
+  font-size:10px;
+}
+
+.tech-korean-copy{
+  font-size:19px;
+}
+
+.section-summary{
+  font-size:16px;
+}
+
+/* Shared card body typography */
+.card-index{
+  font-size:11px;
+}
+
+.visual-card p,
+.output-card p,
+.process-card p{
+  font-size:15px;
+}
+
+.chip-row span{
+  font-size:10px;
+}
+
+/* Overview cards */
+.overview-card h3{
+  font-size:29px;
+}
+
+.overview-card small{
+  font-size:16px;
+}
+
+/* Problem cards */
+.problem-card h3{
+  font-size:20px;
+}
+
+.problem-card small{
+  font-size:15px;
+}
+
+/* Process cards */
+.process-card>span{
+  font-size:11px;
+}
+
+.process-card h3{
+  font-size:23px;
+}
+
+.process-card small{
+  font-size:15px;
+}
+
+/* Core technology cards */
+.core-tech-card h3{
+  font-size:26px;
+}
+
+.core-tech-card small{
+  font-size:16px;
+}
+
+.core-tech-card li{
+  font-size:12px;
+}
+
+/* Output cards */
+.output-card h3{
+  font-size:20px;
+}
+
+.output-card small{
+  font-size:15px;
+}
+
+/* ENABLE STACK cards */
+.stack-card>span{
+  font-size:11px;
+}
+
+.stack-card h3{
+  font-size:22px;
+}
+
+.stack-card small{
+  font-size:15px;
+}
+
+.stack-card strong{
+  font-size:12px;
+}
+
+/* Human + AI cards */
+.human-card>span{
+  font-size:11px;
+}
+
+.human-card h3{
+  font-size:27px;
+}
+
+.human-card small{
+  font-size:16px;
+}
+
+@media(max-width:900px){
+  .tech-korean-copy{
+    font-size:18px;
+  }
+
+  .overview-card h3{
+    font-size:27px;
+  }
+
+  .human-card h3{
+    font-size:25px;
+  }
+}
+
+@media(max-width:620px){
+  .technology-hero-head,
+  .technology-hero-foot{
+    font-size:9px;
+  }
+
+  .tech-node h2{
+    font-size:12px;
+  }
+
+  .tech-node p,
+  .tech-node>span,
+  .technology-core .core-index,
+  .technology-core small{
+    font-size:9px;
+  }
+
+  .tech-korean-copy{
+    font-size:17px;
+  }
+
+  .visual-card p,
+  .output-card p,
+  .process-card p{
+    font-size:14px;
+  }
+}
