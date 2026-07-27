@@ -1,3 +1,8 @@
+const typeScaleStyle=document.createElement("link");
+typeScaleStyle.rel="stylesheet";
+typeScaleStyle.href="assets/css/technology-type-scale.css";
+document.head.appendChild(typeScaleStyle);
+
 const technologyGrid=document.querySelector("[data-technology-grid]");
 const technologyToggle=document.querySelector("[data-technology-toggle]");
 const technologyHero=document.querySelector("[data-technology-hero]");
