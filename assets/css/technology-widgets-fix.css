@@ -1,3 +1,4 @@
+/* Widget scale normalization */
 .widget-object{
   --widget-scale:1;
   transform-origin:center center;
@@ -23,8 +24,187 @@
   50%{transform:scale(var(--widget-scale)) translateY(-10px) rotateZ(1deg)}
 }
 
+/* Convert every body section to one full-width column */
+.tech-section{
+  display:block;
+}
+
+.tech-section-label{
+  display:block;
+  margin:0 0 34px;
+}
+
+.tech-section>div{
+  width:100%;
+  max-width:none;
+}
+
+.tech-section h1,
+.tech-section h2{
+  max-width:1120px;
+}
+
+.tech-korean-copy{
+  max-width:1120px;
+}
+
+.section-summary{
+  max-width:920px;
+}
+
+/* Give the explanatory assets the full available horizontal width */
+.overview-card-grid,
+.problem-card-grid,
+.process-card-grid,
+.core-tech-grid,
+.output-card-grid,
+.stack-card-grid,
+.human-card-grid{
+  width:100%;
+}
+
+/* ENABLE STACK card alignment */
+.stack-card{
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr) 150px;
+  grid-template-areas:"index content visual";
+  gap:28px;
+  align-items:center;
+  min-height:300px;
+  padding:32px;
+}
+
+.stack-card>span{
+  grid-area:index;
+  align-self:start;
+  margin-top:2px;
+}
+
+.stack-card>div:last-child{
+  grid-area:content;
+  align-self:center;
+  max-width:720px;
+}
+
+.stack-card>.widget-object{
+  grid-area:visual;
+  align-self:center;
+  justify-self:center;
+  margin:0;
+  transform-origin:center center;
+}
+
+.stack-card h3{
+  margin-top:0;
+}
+
+.stack-card-wide{
+  grid-column:span 2;
+  grid-template-columns:48px minmax(0,1fr) 180px;
+  min-height:320px;
+}
+
+.stack-card-wide>div:last-child{
+  max-width:860px;
+}
+
+/* Keep all other card icons visually anchored */
+.overview-card>.widget-object,
+.core-tech-card>.widget-object,
+.human-card>.widget-object,
+.output-card>.widget-object{
+  margin-left:auto;
+  margin-right:0;
+}
+
+.problem-card>.widget-object{
+  align-self:center;
+  justify-self:center;
+  margin:0;
+}
+
+.process-card>.widget-object{
+  margin-left:0;
+  margin-right:auto;
+}
+
+/* Avoid icon clipping during float motion */
+.visual-card,
+.process-card,
+.output-card{
+  overflow:visible;
+}
+
+.visual-card::before,
+.output-card::before{
+  border-radius:inherit;
+}
+
+/* Restore card clipping only for the visual surface itself */
+.visual-card::after,
+.output-card::after,
+.process-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  border-radius:inherit;
+  pointer-events:none;
+}
+
+@media(max-width:1100px){
+  .stack-card{
+    grid-template-columns:42px minmax(0,1fr) 125px;
+    gap:22px;
+    padding:27px;
+  }
+
+  .stack-card-wide{
+    grid-template-columns:42px minmax(0,1fr) 145px;
+  }
+}
+
+@media(max-width:900px){
+  .tech-section-label{
+    margin-bottom:26px;
+  }
+
+  .stack-card,
+  .stack-card-wide{
+    grid-template-columns:34px minmax(0,1fr) 110px;
+    grid-template-areas:"index content visual";
+    min-height:270px;
+  }
+}
+
 @media(max-width:620px){
   .widget-object{--widget-scale:.82;width:123px;height:98px}
   .widget-small{--widget-scale:.64;width:96px;height:77px}
   .widget-tiny{--widget-scale:.44;width:66px;height:53px}
+
+  .stack-card,
+  .stack-card-wide{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "index"
+      "visual"
+      "content";
+    gap:12px;
+    min-height:auto;
+    padding:24px;
+  }
+
+  .stack-card>span{
+    position:static;
+    margin:0;
+  }
+
+  .stack-card>.widget-object{
+    justify-self:end;
+    margin:0 0 4px;
+  }
+
+  .stack-card>div:last-child{
+    max-width:none;
+  }
 }
