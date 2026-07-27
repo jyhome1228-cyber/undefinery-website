@@ -12,15 +12,11 @@ if(technologyGrid&&technologyToggle){
     technologyGrid.classList.toggle("is-active",active);
     technologyToggle.setAttribute("aria-pressed",String(active));
     const label=technologyToggle.querySelector("[data-core-state]");
-    if(label)label.textContent=active?"SYSTEM ACTIVE":"CLICK TO REVEAL";
+    if(label)label.textContent=active?"SYSTEM ACTIVE":"ACTIVATE SYSTEM";
   };
 
   setTechnologyState(false);
-
-  technologyToggle.addEventListener("click",()=>{
-    const active=technologyToggle.getAttribute("aria-pressed")!=="true";
-    setTechnologyState(active);
-  });
+  technologyToggle.addEventListener("click",()=>setTechnologyState(technologyToggle.getAttribute("aria-pressed")!=="true"));
 }
 
 if(technologyHero&&!window.matchMedia("(pointer: coarse)").matches){
@@ -29,10 +25,8 @@ if(technologyHero&&!window.matchMedia("(pointer: coarse)").matches){
     if(frame)cancelAnimationFrame(frame);
     frame=requestAnimationFrame(()=>{
       const rect=technologyHero.getBoundingClientRect();
-      const x=((event.clientX-rect.left)/rect.width)*100;
-      const y=((event.clientY-rect.top)/rect.height)*100;
-      technologyHero.style.setProperty("--tx",`${x}%`);
-      technologyHero.style.setProperty("--ty",`${y}%`);
+      technologyHero.style.setProperty("--tx",`${((event.clientX-rect.left)/rect.width)*100}%`);
+      technologyHero.style.setProperty("--ty",`${((event.clientY-rect.top)/rect.height)*100}%`);
     });
   });
 }
@@ -42,14 +36,9 @@ if(revealItems.length){
   if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
+        if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}
       });
     },{threshold:.12,rootMargin:"0px 0px -8%"});
     revealItems.forEach(item=>observer.observe(item));
-  }else{
-    revealItems.forEach(item=>item.classList.add("is-visible"));
-  }
+  }else revealItems.forEach(item=>item.classList.add("is-visible"));
 }
