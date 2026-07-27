@@ -3,6 +3,8 @@ const technologyToggle=document.querySelector("[data-technology-toggle]");
 const technologyState=document.getElementById("technology-state");
 const technologyHero=document.querySelector("[data-technology-hero]");
 
+document.querySelectorAll(".role-grid article").forEach(article=>article.style.position="relative");
+
 if(technologyGrid&&technologyToggle){
   const nodes=[...technologyGrid.querySelectorAll(".tech-node")];
   nodes.forEach(node=>node.style.setProperty("--order",node.dataset.order||1));
