@@ -1,24 +1,5 @@
-const aboutCards=[...document.querySelectorAll('[data-about-card]')];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer=window.matchMedia('(pointer: fine)').matches;
-
-const setAboutCard=(card,open)=>{
-  const button=card.querySelector('[data-about-toggle]');
-  const label=card.querySelector('[data-about-action]');
-  card.classList.toggle('is-open',open);
-  if(button)button.setAttribute('aria-expanded',String(open));
-  if(label)label.textContent=open?'CLOSE DETAILS':'VIEW DETAILS';
-};
-
-aboutCards.forEach(card=>{
-  const button=card.querySelector('[data-about-toggle]');
-  if(!button)return;
-  button.addEventListener('click',()=>{
-    const open=!card.classList.contains('is-open');
-    aboutCards.forEach(other=>setAboutCard(other,false));
-    setAboutCard(card,open);
-  });
-});
 
 const revealItems=document.querySelectorAll('[data-about-reveal]');
 if(revealItems.length){
@@ -30,52 +11,93 @@ if(revealItems.length){
           observer.unobserve(entry.target);
         }
       });
-    },{threshold:.12,rootMargin:'0px 0px -8%'});
+    },{threshold:.12,rootMargin:'0px 0px -7%'});
     revealItems.forEach(item=>observer.observe(item));
-  }else revealItems.forEach(item=>item.classList.add('is-visible'));
+  }else{
+    revealItems.forEach(item=>item.classList.add('is-visible'));
+  }
 }
 
-const processCards=document.querySelectorAll('[data-about-step]');
-if(processCards.length){
-  if('IntersectionObserver' in window&&!reducedMotion){
-    const stepObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-active');
-          stepObserver.unobserve(entry.target);
-        }
-      });
-    },{threshold:.3,rootMargin:'0px 0px -5%'});
-    processCards.forEach(card=>stepObserver.observe(card));
-  }else processCards.forEach(card=>card.classList.add('is-active'));
-}
+const builderRows=[...document.querySelectorAll('[data-builder-row]')];
+const builderVisual=document.querySelector('[data-builder-visual]');
+const visualNumber=document.querySelector('[data-visual-number]');
+const visualTitle=document.querySelector('[data-visual-title]');
 
-const tiltItems=document.querySelectorAll('[data-about-tilt]');
-if(tiltItems.length&&finePointer&&!reducedMotion){
-  tiltItems.forEach(item=>{
-    let frame;
-    item.addEventListener('pointermove',event=>{
-      if(frame)cancelAnimationFrame(frame);
-      frame=requestAnimationFrame(()=>{
-        const rect=item.getBoundingClientRect();
-        const px=(event.clientX-rect.left)/rect.width;
-        const py=(event.clientY-rect.top)/rect.height;
-        item.style.setProperty('--rx',`${((.5-py)*4.5).toFixed(2)}deg`);
-        item.style.setProperty('--ry',`${((px-.5)*5.5).toFixed(2)}deg`);
-        item.style.setProperty('--shine-x',`${(px*100).toFixed(1)}%`);
-        item.style.setProperty('--shine-y',`${(py*100).toFixed(1)}%`);
-      });
+const builderStates={
+  business:{number:'01',title:'BUSINESS STRUCTURE'},
+  brand:{number:'02',title:'BRAND SYSTEM'},
+  digital:{number:'03',title:'DIGITAL INFRASTRUCTURE'},
+  operation:{number:'04',title:'OPERATION SYSTEM'}
+};
+
+const setBuilderRow=(targetRow,open)=>{
+  builderRows.forEach(row=>{
+    const isTarget=row===targetRow&&open;
+    row.classList.toggle('is-open',isTarget);
+    const button=row.querySelector('button');
+    if(button)button.setAttribute('aria-expanded',String(isTarget));
+  });
+
+  if(open&&targetRow&&builderVisual){
+    const state=targetRow.dataset.stage||'business';
+    const content=builderStates[state]||builderStates.business;
+    builderVisual.dataset.state=state;
+    if(visualNumber)visualNumber.textContent=content.number;
+    if(visualTitle)visualTitle.textContent=content.title;
+  }
+};
+
+builderRows.forEach(row=>{
+  const button=row.querySelector('button');
+  if(!button)return;
+  button.addEventListener('click',()=>{
+    const shouldOpen=!row.classList.contains('is-open');
+    setBuilderRow(row,shouldOpen);
+  });
+
+  if(finePointer){
+    button.addEventListener('mouseenter',()=>{
+      const state=row.dataset.stage||'business';
+      const content=builderStates[state]||builderStates.business;
+      if(builderVisual){
+        builderVisual.dataset.state=state;
+        if(visualNumber)visualNumber.textContent=content.number;
+        if(visualTitle)visualTitle.textContent=content.title;
+      }
     });
-    item.addEventListener('pointerleave',()=>{
-      if(frame)cancelAnimationFrame(frame);
-      item.style.setProperty('--rx','0deg');
-      item.style.setProperty('--ry','0deg');
-      item.style.removeProperty('--shine-x');
-      item.style.removeProperty('--shine-y');
+  }
+});
+
+const technologyRows=[...document.querySelectorAll('[data-tech-row]')];
+technologyRows.forEach(row=>{
+  const button=row.querySelector('button');
+  if(!button)return;
+  button.addEventListener('click',()=>{
+    const shouldOpen=!row.classList.contains('is-open');
+    technologyRows.forEach(other=>{
+      const otherButton=other.querySelector('button');
+      other.classList.toggle('is-open',other===row&&shouldOpen);
+      if(otherButton)otherButton.setAttribute('aria-expanded',String(other===row&&shouldOpen));
     });
   });
-}
-
-document.querySelectorAll('.about-widget').forEach((widget,index)=>{
-  widget.style.animationDelay=`${-(index%7)*.55}s`;
 });
+
+const hero=document.querySelector('[data-about-hero]');
+const stage=document.querySelector('[data-builder-stage]');
+if(hero&&stage&&finePointer&&!reducedMotion){
+  let frame;
+  hero.addEventListener('pointermove',event=>{
+    if(frame)cancelAnimationFrame(frame);
+    frame=requestAnimationFrame(()=>{
+      const rect=hero.getBoundingClientRect();
+      const px=(event.clientX-rect.left)/rect.width;
+      const py=(event.clientY-rect.top)/rect.height;
+      stage.style.setProperty('--my',`${((px-.5)*7).toFixed(2)}deg`);
+      stage.style.setProperty('--mx',`${((.5-py)*6).toFixed(2)}deg`);
+    });
+  });
+  hero.addEventListener('pointerleave',()=>{
+    stage.style.setProperty('--my','0deg');
+    stage.style.setProperty('--mx','0deg');
+  });
+}
