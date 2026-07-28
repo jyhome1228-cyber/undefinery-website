@@ -1,3 +1,8 @@
+const sharedPageHeadingStyle=document.createElement('link');
+sharedPageHeadingStyle.rel='stylesheet';
+sharedPageHeadingStyle.href='assets/css/page-title-system.css';
+document.head.appendChild(sharedPageHeadingStyle);
+
 const architectureStyle=document.createElement('style');
 architectureStyle.textContent=`
   .architecture-description{display:block!important;max-height:0;overflow:hidden;opacity:0;transition:max-height .42s cubic-bezier(.2,.8,.2,1),opacity .28s ease}
