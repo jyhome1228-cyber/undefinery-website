@@ -1,100 +1,102 @@
-const typeScaleStyle=document.createElement("link");
-typeScaleStyle.rel="stylesheet";
-typeScaleStyle.href="assets/css/technology-type-scale.css";
-document.head.appendChild(typeScaleStyle);
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer=window.matchMedia('(pointer: fine)').matches;
 
-const technologyGrid=document.querySelector("[data-technology-grid]");
-const technologyToggle=document.querySelector("[data-technology-toggle]");
-const technologyHero=document.querySelector("[data-technology-hero]");
-const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const finePointer=window.matchMedia("(pointer: fine)").matches;
-
-if(technologyGrid&&technologyToggle){
-  const nodes=[...technologyGrid.querySelectorAll(".tech-node")];
-  nodes.forEach((node,index)=>node.style.setProperty("--order",node.dataset.order||index+1));
-
-  const setTechnologyState=active=>{
-    technologyGrid.classList.toggle("is-active",active);
-    technologyToggle.setAttribute("aria-pressed",String(active));
-    const label=technologyToggle.querySelector("[data-core-state]");
-    if(label)label.textContent=active?"SYSTEM ACTIVE":"ACTIVATE SYSTEM";
-  };
-
-  setTechnologyState(false);
-  technologyToggle.addEventListener("click",()=>setTechnologyState(technologyToggle.getAttribute("aria-pressed")!=="true"));
+const revealItems=document.querySelectorAll('[data-tech-reveal]');
+if(revealItems.length){
+  if('IntersectionObserver' in window&&!reducedMotion){
+    const revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.12,rootMargin:'0px 0px -7%'});
+    revealItems.forEach(item=>revealObserver.observe(item));
+  }else{
+    revealItems.forEach(item=>item.classList.add('is-visible'));
+  }
 }
 
-if(technologyHero&&finePointer&&!reducedMotion){
+const systemRows=[...document.querySelectorAll('[data-system-row]')];
+const setSystemRow=(row,open)=>{
+  const button=row.querySelector(':scope > button');
+  row.classList.toggle('is-open',open);
+  if(button)button.setAttribute('aria-expanded',String(open));
+};
+
+systemRows.forEach(row=>{
+  const button=row.querySelector(':scope > button');
+  if(!button)return;
+  button.addEventListener('click',()=>{
+    const shouldOpen=!row.classList.contains('is-open');
+    systemRows.forEach(other=>setSystemRow(other,false));
+    setSystemRow(row,shouldOpen);
+  });
+});
+
+if(location.hash==='#enable-stack'){
+  const stackRow=document.querySelector('#enable-stack');
+  if(stackRow){
+    systemRows.forEach(row=>setSystemRow(row,row===stackRow));
+    window.setTimeout(()=>stackRow.scrollIntoView({behavior:reducedMotion?'auto':'smooth',block:'center'}),120);
+  }
+}
+
+const architectureRows=[...document.querySelectorAll('[data-architecture-row]')];
+const architectureVisual=document.querySelector('[data-architecture-visual]');
+const architectureNumber=document.querySelector('[data-architecture-number]');
+const architectureTitle=document.querySelector('[data-architecture-title]');
+
+const architectureLabels={
+  intelligence:['01','DESIGN INTELLIGENCE'],
+  analysis:['02','BUSINESS ANALYSIS'],
+  definition:['03','SYSTEM DEFINITION'],
+  interface:['04','INTERFACE & APPLICATION'],
+  data:['05','DATA & OPERATION']
+};
+
+const setArchitecture=(row)=>{
+  const state=row.dataset.architecture||'intelligence';
+  architectureRows.forEach(item=>{
+    const active=item===row;
+    item.classList.toggle('is-active',active);
+    const button=item.querySelector('button');
+    if(button)button.setAttribute('aria-pressed',String(active));
+  });
+  if(architectureVisual)architectureVisual.dataset.state=state;
+  const label=architectureLabels[state]||architectureLabels.intelligence;
+  if(architectureNumber)architectureNumber.textContent=label[0];
+  if(architectureTitle)architectureTitle.textContent=label[1];
+};
+
+architectureRows.forEach(row=>{
+  const button=row.querySelector('button');
+  if(!button)return;
+  button.addEventListener('click',()=>setArchitecture(row));
+  if(finePointer){
+    button.addEventListener('mouseenter',()=>setArchitecture(row));
+    button.addEventListener('focus',()=>setArchitecture(row));
+  }
+});
+
+const technologyHero=document.querySelector('[data-technology-hero]');
+const technologyStage=document.querySelector('[data-technology-stage]');
+if(technologyHero&&technologyStage&&finePointer&&!reducedMotion){
   let frame;
-  technologyHero.addEventListener("pointermove",event=>{
+  technologyHero.addEventListener('pointermove',event=>{
     if(frame)cancelAnimationFrame(frame);
     frame=requestAnimationFrame(()=>{
       const rect=technologyHero.getBoundingClientRect();
-      technologyHero.style.setProperty("--tx",`${((event.clientX-rect.left)/rect.width)*100}%`);
-      technologyHero.style.setProperty("--ty",`${((event.clientY-rect.top)/rect.height)*100}%`);
+      const px=(event.clientX-rect.left)/rect.width;
+      const py=(event.clientY-rect.top)/rect.height;
+      technologyStage.style.setProperty('--stage-ry',`${((px-.5)*13).toFixed(2)}deg`);
+      technologyStage.style.setProperty('--stage-rx',`${((.5-py)*10-4).toFixed(2)}deg`);
     });
   });
-}
 
-const revealItems=document.querySelectorAll("[data-reveal]");
-if(revealItems.length){
-  if("IntersectionObserver" in window&&!reducedMotion){
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },{threshold:.12,rootMargin:"0px 0px -8%"});
-    revealItems.forEach(item=>observer.observe(item));
-  }else revealItems.forEach(item=>item.classList.add("is-visible"));
-}
-
-const processCards=document.querySelectorAll("[data-step]");
-if(processCards.length){
-  if("IntersectionObserver" in window&&!reducedMotion){
-    const stepObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("is-active");
-          stepObserver.unobserve(entry.target);
-        }
-      });
-    },{threshold:.28,rootMargin:"0px 0px -5%"});
-    processCards.forEach(card=>stepObserver.observe(card));
-  }else processCards.forEach(card=>card.classList.add("is-active"));
-}
-
-const tiltCards=document.querySelectorAll("[data-tilt]");
-if(tiltCards.length&&finePointer&&!reducedMotion){
-  tiltCards.forEach(card=>{
-    let frame;
-    card.addEventListener("pointermove",event=>{
-      if(frame)cancelAnimationFrame(frame);
-      frame=requestAnimationFrame(()=>{
-        const rect=card.getBoundingClientRect();
-        const px=(event.clientX-rect.left)/rect.width;
-        const py=(event.clientY-rect.top)/rect.height;
-        const rotateY=(px-.5)*7;
-        const rotateX=(.5-py)*6;
-        card.style.setProperty("--rx",`${rotateX.toFixed(2)}deg`);
-        card.style.setProperty("--ry",`${rotateY.toFixed(2)}deg`);
-        card.style.setProperty("--shine-x",`${(px*100).toFixed(1)}%`);
-        card.style.setProperty("--shine-y",`${(py*100).toFixed(1)}%`);
-      });
-    });
-
-    card.addEventListener("pointerleave",()=>{
-      if(frame)cancelAnimationFrame(frame);
-      card.style.setProperty("--rx","0deg");
-      card.style.setProperty("--ry","0deg");
-      card.style.removeProperty("--shine-x");
-      card.style.removeProperty("--shine-y");
-    });
+  technologyHero.addEventListener('pointerleave',()=>{
+    technologyStage.style.setProperty('--stage-ry','8deg');
+    technologyStage.style.setProperty('--stage-rx','-7deg');
   });
 }
-
-document.querySelectorAll(".widget-object").forEach((widget,index)=>{
-  widget.style.animationDelay=`${-(index%7)*.48}s`;
-});
