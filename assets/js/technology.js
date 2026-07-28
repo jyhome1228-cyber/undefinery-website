@@ -1,3 +1,10 @@
+const architectureStyle=document.createElement('style');
+architectureStyle.textContent=`
+  .architecture-description{display:block!important;max-height:0;overflow:hidden;opacity:0;transition:max-height .42s cubic-bezier(.2,.8,.2,1),opacity .28s ease}
+  .architecture-row.is-active .architecture-description{max-height:180px;opacity:1}
+`;
+document.head.appendChild(architectureStyle);
+
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer=window.matchMedia('(pointer: fine)').matches;
 
