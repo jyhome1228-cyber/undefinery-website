@@ -1,0 +1,682 @@
+/*
+  UNDEFINERY PRODUCT / DOCS UI SYSTEM
+  Applied to About, Solutions and Technology pages.
+  Keeps the brand's dark technical visual language while normalizing
+  typography, spacing, content width and card hierarchy.
+*/
+
+.about-page,
+.solutions-dark,
+.technology-page{
+  --content-max:1280px;
+  --gutter:clamp(24px,3.4vw,48px);
+  --docs-bg:#0b0d0f;
+  --docs-bg-alt:#101214;
+  --docs-panel:#151719;
+  --docs-panel-hover:#191c1f;
+  --docs-border:rgba(255,255,255,.14);
+  --docs-border-strong:rgba(255,255,255,.22);
+  --docs-text:#f2f2f2;
+  --docs-soft:#c8ccd2;
+  --docs-muted:#949aa3;
+  --docs-accent:#4daafc;
+  --docs-radius:12px;
+  --docs-radius-small:8px;
+  --docs-section-space:72px;
+  color:var(--docs-text);
+  background:var(--docs-bg);
+  font-family:"Segoe UI Variable","Segoe UI","Pretendard","Apple SD Gothic Neo","Noto Sans KR",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.about-page main,
+.solutions-dark main,
+.technology-page main{
+  background:var(--docs-bg);
+}
+
+/* Header: compact product-site navigation */
+.about-page .site-header,
+.solutions-dark .site-header,
+.technology-page .site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  height:64px;
+  padding:0 max(24px,calc((100vw - 1280px)/2 + 24px));
+  color:#f3f3f3;
+  border-bottom:1px solid rgba(255,255,255,.11);
+  background:rgba(11,13,15,.93);
+  backdrop-filter:blur(16px) saturate(125%);
+}
+
+.about-page .wordmark,
+.solutions-dark .wordmark,
+.technology-page .wordmark{
+  font-size:18px;
+  font-weight:650;
+  letter-spacing:-.035em;
+}
+
+.about-page .site-header nav,
+.solutions-dark .site-header nav,
+.technology-page .site-header nav{
+  gap:clamp(20px,2.2vw,32px);
+}
+
+.about-page .site-header nav a,
+.about-page .header-cta,
+.solutions-dark .site-header nav a,
+.solutions-dark .header-cta,
+.technology-page .site-header nav a,
+.technology-page .header-cta{
+  font-size:14px;
+  line-height:1;
+  letter-spacing:0;
+}
+
+.about-page .header-cta,
+.solutions-dark .header-cta,
+.technology-page .header-cta{
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:6px;
+  background:#151719;
+}
+
+.about-page .header-cta:hover,
+.solutions-dark .header-cta:hover,
+.technology-page .header-cta:hover{
+  border-color:rgba(77,170,252,.65);
+  background:#1b1f23;
+}
+
+/* Shared typography hierarchy */
+.about-eyebrow,
+.about-kicker,
+.about-section-index,
+.about-hero-index,
+.solutions-eyebrow,
+.solutions-section-label,
+.technology-eyebrow,
+.technology-kicker,
+.technology-section-index p,
+.technology-hero-index span,
+.technology-hero-foot{
+  font-size:11px!important;
+  font-weight:700;
+  letter-spacing:.11em!important;
+}
+
+.about-hero-copy h1,
+.technology-hero-copy h1,
+.solutions-intro h1{
+  font-weight:600!important;
+  letter-spacing:-.052em!important;
+}
+
+.about-hero-copy h1{
+  max-width:760px;
+  font-size:clamp(48px,5.6vw,78px)!important;
+  line-height:.95!important;
+}
+
+.technology-hero-copy h1{
+  max-width:720px;
+  font-size:clamp(50px,6vw,82px)!important;
+  line-height:.92!important;
+}
+
+.solutions-intro h1{
+  max-width:980px;
+  font-size:clamp(42px,4.6vw,66px)!important;
+  line-height:1.04!important;
+}
+
+.about-hero-korean,
+.technology-hero-korean,
+.solutions-intro-copy>p{
+  font-size:17px!important;
+  line-height:1.72!important;
+}
+
+.about-statement h2,
+.about-technology h2,
+.about-method h2,
+.about-closing h2,
+.technology-statement h2,
+.architecture-head h2,
+.technology-output-body h2,
+.technology-direction-body h2,
+.technology-closing h2,
+.solutions-selection h2,
+.solutions-process h2,
+.solutions-final-cta h2{
+  font-size:clamp(30px,3vw,44px)!important;
+  font-weight:600!important;
+  line-height:1.18!important;
+  letter-spacing:-.042em!important;
+}
+
+.about-statement-copy p,
+.about-technology-head>p:last-child,
+.about-closing-action p,
+.technology-statement-copy p,
+.architecture-head>p:last-child,
+.technology-closing-action p,
+.solutions-selection-intro,
+.solutions-final-cta>p:not(.solutions-section-label){
+  font-size:16px!important;
+  line-height:1.78!important;
+}
+
+/* Compact, documentation-like heroes */
+.about-builder-hero,
+.technology-builder-hero{
+  min-height:780px!important;
+  padding-top:112px!important;
+  padding-bottom:92px!important;
+  gap:52px!important;
+}
+
+.solutions-intro{
+  min-height:auto!important;
+  padding-top:128px!important;
+  padding-bottom:72px!important;
+}
+
+.about-hero-copy h1,
+.technology-hero-copy h1,
+.solutions-intro h1{
+  margin-top:20px!important;
+}
+
+.about-hero-korean,
+.technology-hero-korean{
+  margin-top:28px!important;
+}
+
+.about-hero-index,
+.technology-hero-index{
+  margin-top:30px!important;
+}
+
+.builder-object-stage,
+.technology-object-stage{
+  width:min(100%,500px)!important;
+}
+
+/* Shared section rhythm */
+.about-statement,
+.about-build,
+.about-technology,
+.about-method,
+.technology-statement,
+.technology-core-systems,
+.technology-architecture,
+.technology-output,
+.technology-direction,
+.technology-closing{
+  grid-template-columns:140px minmax(0,1fr)!important;
+  gap:40px!important;
+  padding-top:var(--docs-section-space)!important;
+  padding-bottom:var(--docs-section-space)!important;
+  border-color:var(--docs-border)!important;
+}
+
+.about-build,
+.about-method,
+.technology-statement:nth-of-type(even),
+.technology-core-systems:nth-of-type(even),
+.technology-architecture:nth-of-type(even),
+.technology-output:nth-of-type(even),
+.technology-direction:nth-of-type(even){
+  background:var(--docs-bg-alt)!important;
+}
+
+.solutions-selection,
+.solutions-process,
+.solutions-final-cta{
+  padding-top:var(--docs-section-space)!important;
+  padding-bottom:var(--docs-section-space)!important;
+}
+
+.solutions-intro-copy{
+  grid-template-columns:minmax(240px,.72fr) minmax(0,1.45fr)!important;
+  gap:48px!important;
+  margin-top:48px!important;
+  padding-top:24px!important;
+}
+
+.about-statement-copy,
+.technology-statement-copy{
+  gap:32px!important;
+  margin-top:30px!important;
+}
+
+/* Flat product cards instead of oversized presentation panels */
+.solution-principle,
+.solution-card,
+.solution-process-card,
+.builder-visual,
+.architecture-visual,
+.method-line li,
+.output-lines article,
+.direction-lines article{
+  border:1px solid var(--docs-border)!important;
+  border-radius:var(--docs-radius)!important;
+  background:linear-gradient(145deg,#171a1d,#111315)!important;
+  box-shadow:none!important;
+}
+
+.solution-principle:hover,
+.solution-card:hover,
+.solution-process-card:hover,
+.method-line li:hover,
+.output-lines article:hover,
+.direction-lines article:hover{
+  border-color:rgba(77,170,252,.45)!important;
+  background:var(--docs-panel-hover)!important;
+}
+
+.solution-principle{
+  min-height:208px!important;
+  padding:22px!important;
+}
+
+.solution-principle h2{
+  margin-top:68px!important;
+  font-size:20px!important;
+}
+
+.solution-principle p{
+  font-size:15px!important;
+  line-height:1.65!important;
+}
+
+.solution-widget{
+  top:20px!important;
+  right:20px!important;
+  transform:scale(.9);
+  transform-origin:top right;
+}
+
+.solution-card-grid{
+  gap:14px!important;
+  margin-top:40px!important;
+}
+
+.solution-card{
+  min-height:300px!important;
+}
+
+.solution-card-toggle{
+  min-height:300px!important;
+  padding:24px!important;
+  grid-template-columns:minmax(0,1fr) 150px!important;
+  gap:24px!important;
+}
+
+.solution-card-number{
+  top:22px!important;
+  left:24px!important;
+  font-size:11px!important;
+}
+
+.solution-card h3{
+  font-size:clamp(22px,2vw,28px)!important;
+  line-height:1.16!important;
+}
+
+.solution-card-subtitle{
+  margin:6px 0 14px!important;
+  font-size:15px!important;
+}
+
+.solution-card-summary{
+  max-width:560px;
+  font-size:15px!important;
+  line-height:1.72!important;
+}
+
+.solution-card-action{
+  margin-top:18px!important;
+  font-size:11px!important;
+}
+
+.solution-icon{
+  transform:scale(.84);
+  transform-origin:center;
+}
+
+.solution-card-detail-inner{
+  padding:24px!important;
+  gap:30px!important;
+  border-top:1px solid var(--docs-border)!important;
+}
+
+.solution-detail-heading{
+  font-size:15px!important;
+}
+
+.solution-detail-copy,
+.solution-deliverables li{
+  font-size:14px!important;
+  line-height:1.7!important;
+}
+
+.solution-process-grid{
+  gap:14px!important;
+  margin-top:34px!important;
+}
+
+.solution-process-card{
+  min-height:auto!important;
+  padding:22px!important;
+}
+
+.solution-process-card h3{
+  font-size:20px!important;
+}
+
+.solution-process-card p{
+  font-size:15px!important;
+  line-height:1.68!important;
+}
+
+/* About page: turn long presentation rows into readable product documentation */
+.about-build-layout,
+.architecture-layout{
+  gap:40px!important;
+}
+
+.builder-row button,
+.technology-row button,
+.system-row>button,
+.architecture-row button{
+  padding-top:22px!important;
+  padding-bottom:22px!important;
+}
+
+.builder-row button{
+  grid-template-columns:42px minmax(200px,.78fr) minmax(250px,1fr) 24px!important;
+  gap:18px!important;
+}
+
+.builder-row-title{
+  font-size:21px!important;
+  line-height:1.25!important;
+}
+
+.builder-row-summary,
+.technology-row button>strong,
+.system-row>button>strong,
+.architecture-row button p{
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+
+.builder-row-detail>div,
+.technology-detail>div,
+.system-detail-inner{
+  gap:30px!important;
+}
+
+.builder-row-detail p,
+.technology-detail p,
+.system-detail-copy>p:last-child,
+.architecture-description p{
+  font-size:15px!important;
+  line-height:1.72!important;
+}
+
+.builder-row-detail li,
+.technology-detail li,
+.system-spec-list dt,
+.system-spec-list dd,
+.architecture-description small{
+  font-size:12px!important;
+  line-height:1.6!important;
+}
+
+.builder-visual,
+.architecture-visual{
+  min-height:420px!important;
+  overflow:hidden;
+}
+
+.technology-accordion,
+.technology-systems,
+.architecture-list{
+  border-color:var(--docs-border)!important;
+}
+
+.technology-row,
+.system-row,
+.architecture-row,
+.builder-row{
+  border-color:var(--docs-border)!important;
+}
+
+.technology-row button,
+.system-row>button{
+  grid-template-columns:48px minmax(210px,.75fr) minmax(280px,1fr) 24px!important;
+  gap:20px!important;
+}
+
+.technology-row h3,
+.system-title h2{
+  font-size:clamp(24px,2.4vw,34px)!important;
+}
+
+.architecture-row button{
+  min-height:auto!important;
+}
+
+.architecture-row button b{
+  font-size:18px!important;
+}
+
+/* Smaller radii, restrained accent and clearer hover */
+.solution-card,
+.solution-principle,
+.solution-process-card,
+.builder-visual,
+.architecture-visual,
+.method-line li,
+.output-lines article,
+.direction-lines article{
+  transition:border-color .2s ease,background-color .2s ease,transform .2s ease!important;
+}
+
+.solution-card:hover,
+.solution-principle:hover,
+.solution-process-card:hover{
+  transform:translateY(-2px)!important;
+}
+
+.pill{
+  margin-top:28px!important;
+  padding:12px 16px!important;
+  border-radius:6px!important;
+  border-color:rgba(255,255,255,.22)!important;
+  background:#151719;
+  font-size:13px!important;
+  letter-spacing:0!important;
+}
+
+.pill:hover{
+  color:#fff;
+  border-color:rgba(77,170,252,.65)!important;
+  background:#1b1f23;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .about-page .site-header,
+  .solutions-dark .site-header,
+  .technology-page .site-header{
+    height:60px;
+    padding:0 20px;
+  }
+
+  .about-page .site-header nav,
+  .solutions-dark .site-header nav,
+  .technology-page .site-header nav{
+    top:60px;
+    padding:20px;
+    gap:18px;
+  }
+
+  .about-builder-hero,
+  .technology-builder-hero{
+    min-height:auto!important;
+    padding-top:104px!important;
+    padding-bottom:88px!important;
+    grid-template-columns:1fr!important;
+    gap:32px!important;
+  }
+
+  .solutions-intro{
+    padding-top:104px!important;
+    padding-bottom:56px!important;
+  }
+
+  .about-hero-copy h1,
+  .technology-hero-copy h1,
+  .solutions-intro h1{
+    font-size:clamp(38px,10vw,54px)!important;
+  }
+
+  .builder-object-stage,
+  .technology-object-stage{
+    width:min(100%,420px)!important;
+    justify-self:center!important;
+  }
+
+  .about-statement,
+  .about-build,
+  .about-technology,
+  .about-method,
+  .technology-statement,
+  .technology-core-systems,
+  .technology-architecture,
+  .technology-output,
+  .technology-direction,
+  .technology-closing{
+    grid-template-columns:1fr!important;
+    gap:22px!important;
+    padding-top:56px!important;
+    padding-bottom:56px!important;
+  }
+
+  .solutions-intro-copy,
+  .solution-principle-grid,
+  .solution-card-grid,
+  .solution-process-grid,
+  .about-statement-copy,
+  .technology-statement-copy{
+    grid-template-columns:1fr!important;
+  }
+
+  .solution-card:last-child{
+    grid-column:auto!important;
+  }
+
+  .solution-card-toggle{
+    grid-template-columns:minmax(0,1fr) 112px!important;
+    min-height:270px!important;
+  }
+
+  .about-build-layout,
+  .architecture-layout{
+    grid-template-columns:1fr!important;
+  }
+
+  .builder-row button,
+  .technology-row button,
+  .system-row>button{
+    grid-template-columns:38px minmax(0,1fr) 22px!important;
+  }
+
+  .builder-row-summary,
+  .technology-row button>strong,
+  .system-row>button>strong{
+    grid-column:2/3;
+  }
+
+  .builder-visual,
+  .architecture-visual{
+    min-height:340px!important;
+  }
+}
+
+@media(max-width:620px){
+  .about-page,
+  .solutions-dark,
+  .technology-page{
+    --gutter:20px;
+  }
+
+  .about-builder-hero,
+  .technology-builder-hero,
+  .solutions-intro{
+    padding-left:20px!important;
+    padding-right:20px!important;
+  }
+
+  .about-hero-korean,
+  .technology-hero-korean,
+  .solutions-intro-copy>p{
+    font-size:16px!important;
+  }
+
+  .solution-card-toggle{
+    grid-template-columns:1fr!important;
+    min-height:auto!important;
+    padding:22px!important;
+  }
+
+  .solution-icon{
+    position:relative!important;
+    justify-self:end;
+    order:-1;
+    margin-bottom:4px;
+  }
+
+  .solution-card-copy{
+    align-self:auto!important;
+  }
+
+  .builder-row button,
+  .technology-row button,
+  .system-row>button{
+    grid-template-columns:32px minmax(0,1fr) 20px!important;
+    gap:12px!important;
+  }
+
+  .builder-row-summary,
+  .technology-row button>strong,
+  .system-row>button>strong{
+    grid-column:2/4;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .solution-card,
+  .solution-principle,
+  .solution-process-card,
+  .builder-visual,
+  .architecture-visual,
+  .method-line li,
+  .output-lines article,
+  .direction-lines article{
+    transition:none!important;
+    transform:none!important;
+  }
+}
