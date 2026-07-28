@@ -1,4 +1,5 @@
 const root = location.pathname.includes("/portfolio/") || location.pathname.includes("/insights/") || location.pathname.includes("/models/") ? "../" : "";
+if(document.body.matches(".about-page,.solutions-dark,.technology-page")){const docsStyle=document.createElement("link");docsStyle.rel="stylesheet";docsStyle.href=`${root}assets/css/docs-ui.css`;document.head.appendChild(docsStyle)}
 const nav = [["ABOUT","about.html"],["SOLUTIONS","solutions.html"],["ENABLE AI","technology.html"],["PORTFOLIO","portfolio.html"],["PRODUCTION","production.html"],["INSIGHTS","insights.html"]];
 const aboutSubnav = [["ABOUT","about.html"],["CAPABILITIES","technical.html"],["EXPERTS","experts.html"],["NEWS","news.html"]];
 const productionSubnav = [["AI MODEL","ai-models.html"],["SPACE","space-production.html"],["PRODUCT","product-production.html"]];
