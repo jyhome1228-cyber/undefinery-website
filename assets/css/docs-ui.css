@@ -44,29 +44,61 @@
 .technology-page .site-header{
   position:fixed;
   top:0;
-  left:0;
-  right:0;
+  left:0!important;
+  right:0!important;
   z-index:100;
+  width:100%!important;
+  max-width:none!important;
   height:64px;
   padding:0 max(24px,calc((100vw - 1280px)/2 + 24px));
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
   color:#f3f3f3;
   border-bottom:1px solid rgba(255,255,255,.11);
   background:rgba(11,13,15,.93);
   backdrop-filter:blur(16px) saturate(125%);
+  transform:none!important;
 }
 
 .about-page .wordmark,
 .solutions-dark .wordmark,
 .technology-page .wordmark{
+  justify-self:start;
+  min-width:max-content;
   font-size:18px;
   font-weight:650;
   letter-spacing:-.035em;
+  white-space:nowrap;
 }
 
-.about-page .site-header nav,
-.solutions-dark .site-header nav,
-.technology-page .site-header nav{
-  gap:clamp(20px,2.2vw,32px);
+.about-page .site-header>nav,
+.solutions-dark .site-header>nav,
+.technology-page .site-header>nav{
+  justify-self:center;
+  min-width:0;
+  gap:clamp(18px,2vw,30px);
+  align-items:center;
+  white-space:nowrap;
+}
+
+.about-page .nav-item,
+.solutions-dark .nav-item,
+.technology-page .nav-item{
+  height:64px!important;
+}
+
+.about-page .nav-item>a,
+.solutions-dark .nav-item>a,
+.technology-page .nav-item>a{
+  height:64px!important;
+  white-space:nowrap;
+}
+
+.about-page .nav-dropdown,
+.solutions-dark .nav-dropdown,
+.technology-page .nav-dropdown{
+  top:56px!important;
 }
 
 .about-page .site-header nav a,
@@ -78,11 +110,14 @@
   font-size:14px;
   line-height:1;
   letter-spacing:0;
+  white-space:nowrap;
 }
 
 .about-page .header-cta,
 .solutions-dark .header-cta,
 .technology-page .header-cta{
+  justify-self:end;
+  min-width:max-content;
   padding:10px 14px;
   border:1px solid rgba(255,255,255,.18);
   border-radius:6px;
@@ -94,6 +129,18 @@
 .technology-page .header-cta:hover{
   border-color:rgba(77,170,252,.65);
   background:#1b1f23;
+}
+
+/* About local navigation always remains one row on desktop */
+.about-page .company-nav.about-subnav{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  width:100%;
+}
+
+.about-page .company-nav.about-subnav a{
+  min-width:0;
+  padding:18px 16px!important;
+  white-space:nowrap;
 }
 
 /* Shared typography hierarchy */
@@ -516,13 +563,58 @@
   background:#1b1f23;
 }
 
+/* Tablet navigation compression */
+@media(max-width:1180px) and (min-width:901px){
+  .about-page .site-header,
+  .solutions-dark .site-header,
+  .technology-page .site-header{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .about-page .site-header>nav,
+  .solutions-dark .site-header>nav,
+  .technology-page .site-header>nav{
+    gap:16px;
+  }
+
+  .about-page .site-header nav a,
+  .solutions-dark .site-header nav a,
+  .technology-page .site-header nav a{
+    font-size:12px;
+  }
+
+  .about-page .header-cta,
+  .solutions-dark .header-cta,
+  .technology-page .header-cta{
+    padding:9px 10px;
+    font-size:12px;
+  }
+}
+
 /* Mobile */
 @media(max-width:900px){
   .about-page .site-header,
   .solutions-dark .site-header,
   .technology-page .site-header{
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    max-width:none!important;
     height:60px;
     padding:0 20px;
+    display:flex;
+    justify-content:space-between;
+    transform:none!important;
+  }
+
+  .about-page .nav-item,
+  .solutions-dark .nav-item,
+  .technology-page .nav-item,
+  .about-page .nav-item>a,
+  .solutions-dark .nav-item>a,
+  .technology-page .nav-item>a{
+    height:auto!important;
   }
 
   .about-page .site-header nav,
@@ -531,6 +623,15 @@
     top:60px;
     padding:20px;
     gap:18px;
+    white-space:normal;
+  }
+
+  .about-page .company-nav.about-subnav{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+
+  .about-page .company-nav.about-subnav a{
+    white-space:normal;
   }
 
   .about-builder-hero,
@@ -634,6 +735,10 @@
   .technology-hero-korean,
   .solutions-intro-copy>p{
     font-size:16px!important;
+  }
+
+  .about-page .company-nav.about-subnav{
+    grid-template-columns:1fr!important;
   }
 
   .solution-card-toggle{
