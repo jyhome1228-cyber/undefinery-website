@@ -1,3 +1,8 @@
+const sharedPageHeadingStyle=document.createElement("link");
+sharedPageHeadingStyle.rel="stylesheet";
+sharedPageHeadingStyle.href="assets/css/page-title-system.css";
+document.head.appendChild(sharedPageHeadingStyle);
+
 const solutionCards=[...document.querySelectorAll("[data-solution-card]")];
 const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer=window.matchMedia("(pointer: fine)").matches;
